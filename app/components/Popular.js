@@ -17,23 +17,24 @@ class Popular extends React.Component {
             }
         });
     }
+
     render() {
-        var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+        let languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
 
         return (
             <div>
-                <ul className="languages">
-                    {languages.map(function (lang) {
-                        return (
-                            <li
-                                style={lang === this.state.selectedLanguage ? {color : '#d0021b'} : null}
-                                onClick={this.updateLanguage(null, lang)}
-                                key={lang}>
-                                {lang}
-                            </li>
-                        )
-                    }, this)}
-                </ul>
+              <ul className='languages'>
+                  {languages.map(function (lang) {
+                      return (
+                          <li
+                              style={lang === this.state.selectedLanguage ? {color: '#d0021b'} : null}
+                              onClick={this.updateLanguage.bind(null, lang)}
+                              key={lang}>
+                              {lang}
+                          </li>
+                      )
+                  }, this)}
+              </ul>
             </div>
         )
     }
