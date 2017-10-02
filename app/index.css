@@ -50,3 +50,14 @@ li {
     width: 150px;
     border-radius: 50%;
 }
+
+.nav {
+    display: Flex;
+}
+.active {
+    font-weight: bold;
+}
+
+.nave li {
+    margin-right: 15px;
+}
