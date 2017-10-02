@@ -57,13 +57,13 @@ a {
 }
 
 .nav {
-    display: Flex;
+    display: flex;
 }
 .active {
     font-weight: bold;
 }
 
-.nave li {
+.nav li {
     margin-right: 15px;
 }
 
