@@ -7,7 +7,7 @@ class PlayerInput extends React.Component {
         super(props);
 
         this.state = {
-            username: '',
+            username: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -15,13 +15,13 @@ class PlayerInput extends React.Component {
     }
 
     handleChange(event) {
-        let value = event.target.value;
+        var value = event.target.value;
 
         this.setState(function () {
             return {
                 username: value
             }
-        })
+        });
     }
 
     handleSubmit(event) {
@@ -36,9 +36,7 @@ class PlayerInput extends React.Component {
     render() {
         return (
             <form className="column" onSubmit={this.handleSubmit}>
-                <label className='header' htmlFor='username'>
-                    {this.props.label}
-                </label>
+                <label className='header' htmlFor='username'>{this.props.label}</label>
                 <input
                     id='username'
                     placeholder='github username'
@@ -50,7 +48,7 @@ class PlayerInput extends React.Component {
                 <button
                     className='button'
                     type='submit'
-                    disabled={this.state.username}>
+                    disabled={!this.state.username}>
                     Submit
                 </button>
             </form>
@@ -62,7 +60,7 @@ PlayerInput.propTypes = {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onSubmit: PropTypes.func.isRequired,
-}
+};
 
 PlayerInput.defaultProps = {
     label: 'Username',
@@ -115,7 +113,6 @@ class Battle extends React.Component {
                 </div>
             </div>
         )
-
     }
 }
 
