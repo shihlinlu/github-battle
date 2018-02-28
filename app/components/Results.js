@@ -9,8 +9,8 @@ function Profile(props) {
     let info = props.info;
 
     return (
-        <PlayerPreview avatar={info.avatar_url} info={info.login}>
-            <ul className='space-list-items'>
+        <PlayerPreview username={info.login} avatar={info.avatar_url}>
+            <ul className='user-list-items'>
                 {info.name && <li>{info.name}</li>}
                 {info.location && <li>{info.location}</li>}
                 {info.company && <li>{info.company}</li>}
@@ -61,11 +61,11 @@ class Results extends React.Component {
         api.battle([
             players.playerOneName,
             players.playerTwoName
-        ]).then(function (results) {
-            if (results === null) {
+        ]).then(function (players) {
+            if (players === null) {
                 return this.setState(function () {
                     return {
-                        error: 'Looks like there was an error. Check that both users exist on Github',
+                        error: 'Looks like there was an error. Check that both users exist on Github.',
                         loading: false,
                     }
                 });
@@ -74,8 +74,8 @@ class Results extends React.Component {
             this.setState(function () {
                 return {
                     error: null,
-                    winner: results[0],
-                    loser: results[1],
+                    winner: players[0],
+                    loser: players[1],
                     loading: false,
                 }
             });
@@ -83,10 +83,10 @@ class Results extends React.Component {
     }
 
     render() {
-        let error = this.state.error;
-        let winner = this.state.winner;
-        let loser = this.state.loser;
-        let loading = this.state.loading;
+        const error = this.state.error;
+        const winner = this.state.winner;
+        const loser = this.state.loser;
+        const loading = this.state.loading;
 
         if (loading === true) {
             return <p>Loading</p>
