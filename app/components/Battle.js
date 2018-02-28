@@ -16,7 +16,7 @@ class PlayerInput extends React.Component {
     }
 
     handleChange(event) {
-        var value = event.target.value;
+        let value = event.target.value;
 
         this.setState(function () {
             return {
@@ -105,8 +105,8 @@ class Battle extends React.Component {
     render() {
         let match = this.props.match;
         let playerOneName = this.state.playerOneName;
-        let playerTwoName = this.state.playerTwoName;
         let playerOneImage = this.state.playerOneImage;
+        let playerTwoName = this.state.playerTwoName;
         let playerTwoImage = this.state.playerTwoImage;
 
         return (
@@ -125,7 +125,7 @@ class Battle extends React.Component {
                         username={playerOneName}>
                         <button
                             className='reset'
-                            onClick={this.handleReset.bind(null, 'playerOne')}>
+                            onClick={this.handleReset.bind(this, 'playerOne')}>
                             Reset
                         </button>
                     </PlayerPreview>}
@@ -144,7 +144,7 @@ class Battle extends React.Component {
                         onReset={this.handleReset}>
                         <button
                             className='reset'
-                            onClick={this.handleReset.bind(null, 'playerTwo')}>
+                            onClick={this.handleReset.bind(this, 'playerTwo')}>
                             Reset
                         </button>
                     </PlayerPreview>}
